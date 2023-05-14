@@ -1,7 +1,20 @@
-Feature: Definir
 
-  @Smoke
-  Scenario: Definir
-    Given The client is in google page
-    When The client tap on Shop menu
-    Then The client see Filter By Price
+
+
+#@Shop
+#Feature: ShopPage
+#Background:
+ # Given The client is in home page
+ # And The client click on Shop menu
+
+ # Scenario Outline: Verify Product "Category"
+
+  #    When The client Click on category <category> button
+ #     Then The client can see only that particular product in "category"
+#
+  #    Examples:
+   #   |category   |
+    #  |Android    |
+  #    |HTML       |
+   #   |JavaScripts|
+  #    |selenium   |

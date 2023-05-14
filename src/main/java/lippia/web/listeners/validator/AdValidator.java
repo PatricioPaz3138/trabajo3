@@ -43,6 +43,4 @@ final public class AdValidator implements DriverEventListenerValidation {
         }
         return true;
     }
-
-
-}
+   }
