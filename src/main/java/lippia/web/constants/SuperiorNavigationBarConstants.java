@@ -25,8 +25,5 @@ public class SuperiorNavigationBarConstants {
     public static final String REGISTER_BUTTON = "xpath://input[@name='register']";
     public static final String registroExitoso = "xpath://a[.='shipping and billing addresses']";
     public static final String desLog = "xpath://a[contains(text(),'Logout')]";
-    public static final String errorRegistro = "xpath://*[contains(text(),'Incluye un signo')]";
-
-
-}
+    }
 
