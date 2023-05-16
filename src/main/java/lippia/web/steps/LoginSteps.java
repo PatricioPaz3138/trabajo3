@@ -6,9 +6,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lippia.web.services.HomeService;
 import lippia.web.services.LoginService;
 import lippia.web.services.SuperiorBarNavigationBarService;
 import org.apache.commons.logging.Log;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static lippia.web.constants.SuperiorNavigationBarConstants.*;
 
@@ -18,11 +21,6 @@ public class LoginSteps extends PageSteps {
     public void elUsuarioHaceClickEnElBotonMyAccount() {
         LoginService.clickMyAccount();
 
-    }
-
-    @Given("el usuario ingresa usuario y contraseña validos")
-    public void elUsuarioIngresaUsuarioYContraseñaValidos() {
-        LoginService.ingresoUsuarioYContrValido();
     }
 
     @When("el usuario hace click en el boton login")
@@ -37,9 +35,9 @@ public class LoginSteps extends PageSteps {
         WebActionManager.waitClickable(logOut).click();
     }
     //Outline
-    @When("el usuario ingresa (.*) usuario (.*) y contraseña (.*) invalidos")
+    @When("el usuario ingresa usuario (.*) y contraseña (.*)")
     public void elUsuarioIngresaUsuarioUsuarioYContraseñaContraseniaInvalidos
-    (String ingreso ,String usuario,String contrasenia) {
+    (String usuario,String contrasenia) {
         LoginService.loginFallido(usuario,contrasenia);
 
     }

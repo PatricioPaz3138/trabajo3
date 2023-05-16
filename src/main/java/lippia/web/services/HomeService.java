@@ -2,6 +2,8 @@ package lippia.web.services;
 
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
+import com.crowdar.driver.DriverManager;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import static lippia.web.constants.SuperiorNavigationBarConstants.*;
@@ -23,4 +25,9 @@ public class HomeService extends ActionManager {
         WebActionManager.isVisible(HTML);
         WebActionManager.isVisible(JAVA_SCRIPT);
     }
+    public static void cerrarDriver() {
+        WebDriver driver = DriverManager.getDriverInstance();
+        driver.close();
+    }
 }
+

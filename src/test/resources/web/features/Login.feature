@@ -6,24 +6,27 @@ Feature: Login
     And el usuario hace click en el boton My Account
 
   @LoginExitoso
-  Scenario: Inicio de sesion Exitoso
+  Scenario Outline: Inicio de sesion Exitoso
 
-    Given el usuario ingresa usuario y contraseña validos
+    Given el usuario ingresa usuario <usuario> y contraseña <contrasenia>
     When el usuario hace click en el boton login
     Then el usuario inicia sesion correctamente
+    Examples:
+      | usuario                     | contrasenia    |
+      | patricio_paz_16@hotmail.com | Patricio3138!! |
 
   @LoginFallido
   Scenario Outline: Inicio de sesion Fallido
 
-    Given el usuario ingresa <ingreso> usuario <usuario> y contraseña <contrasenia> invalidos
+    Given el usuario ingresa usuario <usuario> y contraseña <contrasenia>
     And el usuario hace click en el boton login
     Then el usuario visualiza un mensaje <mensaje> de error
     Examples:
-      | ingreso                             | usuario                     | contrasenia    | mensaje               |
-      | contraseña Y Usuario Incorrecto     | Patricio3233                | 12345          | not registered        |
-      | usuario Correcto Y Contraseña Vacia | patricio_paz_16@hotmail.com |                | Password is required. |
-      | usuarioVacio Y Contraseña Correcta  |                             | Patricio3138!! | Username is required. |
-      | contraseña Y UsuarioVacios          |                             |                | Username is required. |
+      | usuario                     | contrasenia    | mensaje               |
+      | Patricio3233                | 12345          | not registered        |
+      | patricio_paz_16@hotmail.com |                | Password is required. |
+      |                             | Patricio3138!! | Username is required. |
+      |                             |                | Username is required. |
 
 
 
