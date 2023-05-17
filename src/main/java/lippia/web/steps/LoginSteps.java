@@ -8,10 +8,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lippia.web.services.HomeService;
 import lippia.web.services.LoginService;
-import lippia.web.services.SuperiorBarNavigationBarService;
-import org.apache.commons.logging.Log;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 
 import static lippia.web.constants.SuperiorNavigationBarConstants.*;
 
