@@ -38,7 +38,7 @@ public class LoginSteps extends PageSteps {
     @When("el usuario ingresa usuario (.*) y contraseña (.*)")
     public void elUsuarioIngresaUsuarioUsuarioYContraseñaContraseniaInvalidos
     (String usuario,String contrasenia) {
-        LoginService.loginFallido(usuario,contrasenia);
+        LoginService.login(usuario,contrasenia);
 
     }
     @Then("el usuario visualiza un mensaje (.*) de error")

@@ -17,7 +17,7 @@ public class LoginService extends ActionManager {
     public static void loginExitoso(){
         WebActionManager.isVisible(loginExitoso);
     }
-    public static void loginFallido(String usuario ,String contrasenia){
+    public static void login(String usuario ,String contrasenia){
 
         WebActionManager.waitClickable(campoUsuario).click();
         WebActionManager.setInput(campoUsuario,usuario);
