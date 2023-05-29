@@ -29,7 +29,7 @@
 		<!-- cucumber options -->
 		<cucumber.stepsDefinitions>--glue / </cucumber.stepsDefinitions>
 		<cucumber.hooks>--glue	lippia/web/hooks</cucumber.hooks>
-		<cucumber.tags>--tags '@Home'</cucumber.tags>
+		<cucumber.tags>--tags '@Shop' </cucumber.tags>
 		<cucumber.reporters>--plugin pretty --plugin lippia.web.reporters.CucumberReporter:</cucumber.reporters>
 		<crowdar.cucumber.option>src/test/resources/web/features ${cucumber.hooks} ${cucumber.stepsDefinitions} --tags 'not @Ignore' ${cucumber.tags} ${cucumber.reporters}</crowdar.cucumber.option>
 
@@ -126,7 +126,15 @@
 					<testFailureIgnore>false</testFailureIgnore>
 				</configuration>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>10</source>
+                    <target>10</target>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 
 	<repositories>

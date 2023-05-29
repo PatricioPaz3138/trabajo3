@@ -12,7 +12,7 @@ public class RegistrationService extends ActionManager {
     }
     public static void registroExitoso(){
         WebActionManager.isVisible(registroExitoso);
-        WebActionManager.waitClickable(desLog).click();
+        WebActionManager.waitClickable(logOut).click();
     }
     public static void registro(String mail,String contrasenia){
         WebActionManager.waitClickable(campoUsuarioRegister).click();

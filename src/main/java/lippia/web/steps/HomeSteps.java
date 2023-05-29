@@ -4,14 +4,14 @@ import io.cucumber.java.en.*;
 import lippia.web.services.HomeService;
 import lippia.web.services.SuperiorBarNavigationBarService;
 public class HomeSteps extends PageSteps {
-    //Sliders
+
     @Given("el usuario ingresa a la URL")
     public void elUsuarioIngresaALaURL() {
         SuperiorBarNavigationBarService.navegarWeb();
     }
 
-    @When("el usuario hace click en {string} menu")
-    public void elUsuarioHaceClickEnMenu(String arg0) {
+    @When("el usuario clickea Shop menu")
+    public void elUsuarioHaceClickEnMenu() {
         SuperiorBarNavigationBarService.clickMenu();
     }
 
@@ -24,12 +24,10 @@ public class HomeSteps extends PageSteps {
     public void elUsuarioVerificaQueHaySoloTresSliders() {
         HomeService.clickSliders();
     }
-    //Arrivals
     @Then("el usuario verifica que hay tres arrivals presentes")
     public void elUsuarioVerificaQueHayTresArrivalsPresentes() {
         HomeService.verificaArrivals();
     }
-    //DescriptionArrivals
     @And("el usuario hace click en cualquier imagen '(.*)' del libro")
     public void elUsuarioHaceClickEnCualquierImagenDelLibro(String imagenNombre) {
         SuperiorBarNavigationBarService.clickLibros(imagenNombre);
@@ -42,5 +40,16 @@ public class HomeSteps extends PageSteps {
     @Then("el usuario visualiza la descripcion '(.*)' del libro")
     public void elUsuarioVisualizaLaDescripcionDelLibro(String descripcion) {
         SuperiorBarNavigationBarService.verificarDescripcion(descripcion);
+
+    }
+
+    @And("el usuario hace click en review del libro")
+    public void elUsuarioHaceClickEnReviewReviewDelLibro() {
+        SuperiorBarNavigationBarService.clickReview();
+    }
+
+    @Then("el usuario visualiza la review '(.*)' del libro")
+    public void elUsuarioVisualizaLaReviewDelLibro(String reviews) {
+        SuperiorBarNavigationBarService.verificarReview(reviews);
     }
 }

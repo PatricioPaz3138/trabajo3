@@ -29,6 +29,15 @@ public class SuperiorBarNavigationBarService  {
         Assert.assertTrue(WebActionManager.isVisible(descripcionLibro));
         Assert.assertTrue(descripcionMostrada.contains(descripcion));
       }
+    public static void clickReview(){
+        WebActionManager.waitClickable(reviewLibro).click();
+    }
+
+    public static void verificarReview(String reviews){
+        String reviewMostrada = WebActionManager.getText(textReviewLibro);
+        Assert.assertTrue(WebActionManager.isVisible(textReviewLibro));
+        Assert.assertTrue(reviewMostrada.contains(reviews));
+    }
     }
 
 

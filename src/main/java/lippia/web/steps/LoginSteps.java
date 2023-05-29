@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lippia.web.services.HomeService;
 import lippia.web.services.LoginService;
-
+import org.apache.commons.logging.Log;
 
 
 import static lippia.web.constants.SuperiorNavigationBarConstants.*;
@@ -30,7 +30,7 @@ public class LoginSteps extends PageSteps {
     @Then("el usuario inicia sesion correctamente")
     public void elUsuarioIniciaSesionCorrectamente() {
         LoginService.loginExitoso();
-        WebActionManager.waitClickable(logOut).click();
+
     }
     //Outline
     @When("el usuario ingresa usuario (.*) y contraseña (.*)")
@@ -45,6 +45,18 @@ public class LoginSteps extends PageSteps {
 
     }
 
+    @And("el usuario hace click en cerrar sesion")
+    public void elUsuarioHaceClickEnCerrarSesion() {
+        LoginService.cierreDeSesion();
+    }
 
+    @And("el usuario vuelve atras en la pagina")
+    public void elUsuarioVuelveAtrasEnLaPagina() {
+        LoginService.volverAtras();
+    }
 
+    @Then("el usuario no debe estar logeado")
+    public void elUsuarioNoDebeEstarLogeado() {
+        LoginService.verificacionCierreDeSesion();
+    }
 }
