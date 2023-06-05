@@ -11,6 +11,7 @@ Feature: Login
     Given el usuario ingresa usuario <usuario> y contraseña <contrasenia>
     When el usuario hace click en el boton login
     Then el usuario inicia sesion correctamente
+
     Examples:
       | usuario                     | contrasenia    |
       | patricio_paz_16@hotmail.com | Patricio3138!! |
@@ -22,12 +23,12 @@ Feature: Login
     And el usuario hace click en el boton login
     Then el usuario visualiza un mensaje <mensaje> de error
     Examples:
-      | usuario                     | contrasenia    | mensaje                  |
-      | Patricio3233                | 12345          | not registered           |
-      | patricio_paz_16@hotmail.com |                | Password is required.    |
-      |                             | Patricio3138!! | Username is required.    |
-      |                             |                | Username is required.    |
-      | pATRICIO_PAZ_16@HOTMAIL.COM | pATrICiO3138!! | the password you entered |
+      | usuario                     | contrasenia    | mensaje                                                                                                                              |
+      | Patricio3233                | 12345          | Error: the username Patricio3233 is not registered on this site. If you are unsure of your username, try your email address instead. |
+      | patricio_paz_16@hotmail.com |                | Error: Password is required.                                                                                                         |
+      |                             | Patricio3138!! | Error: Username is required.                                                                                                         |
+      |                             |                | Error: Username is required.                                                                                                         |
+      | pATRICIO_PAZ_16@HOTMAIL.COM | pATrICiO3138!! | Error: the password you entered for the username pATRICIO_PAZ_16@HOTMAIL.COM is incorrect. Lost your password?                       |
 
   @CierreDeSesion
   Scenario Outline: Cierre de sesion Exitoso

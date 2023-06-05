@@ -2,8 +2,9 @@ package lippia.web.services;
 
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
+import org.testng.Assert;
 
-import static lippia.web.constants.SuperiorNavigationBarConstants.*;
+import static lippia.web.constants.RegistrationConstants.*;
 
 public class RegistrationService extends ActionManager {
 
@@ -11,8 +12,8 @@ public class RegistrationService extends ActionManager {
         WebActionManager.waitClickable(REGISTER_BUTTON).click();
     }
     public static void registroExitoso(){
-        WebActionManager.isVisible(registroExitoso);
-        WebActionManager.waitClickable(logOut).click();
+        Assert.assertTrue(WebActionManager.isVisible(registroExitoso));
+
     }
     public static void registro(String mail,String contrasenia){
         WebActionManager.waitClickable(campoUsuarioRegister).click();

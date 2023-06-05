@@ -2,27 +2,27 @@ package lippia.web.steps;
 import com.crowdar.core.PageSteps;
 import io.cucumber.java.en.*;
 import lippia.web.services.HomeService;
-import lippia.web.services.SuperiorBarNavigationBarService;
+
 public class HomeSteps extends PageSteps {
 
     @Given("el usuario ingresa a la URL")
     public void elUsuarioIngresaALaURL() {
-        SuperiorBarNavigationBarService.navegarWeb();
+        HomeService.navegarWeb();
     }
 
     @When("el usuario clickea Shop menu")
     public void elUsuarioHaceClickEnMenu() {
-        SuperiorBarNavigationBarService.clickMenu();
+        HomeService.clickMenu();
     }
 
     @And("el usuario hace click en el botón del menu home")
     public void elUsuarioHaceClickEnElBotónDelMenuHome() {
-        SuperiorBarNavigationBarService.clickHomeMenu();
+        HomeService.clickHomeMenu();
     }
 
     @Then("el usuario verifica que hay solo tres sliders")
     public void elUsuarioVerificaQueHaySoloTresSliders() {
-        HomeService.clickSliders();
+        HomeService.verificaSliders();
     }
     @Then("el usuario verifica que hay tres arrivals presentes")
     public void elUsuarioVerificaQueHayTresArrivalsPresentes() {
@@ -30,26 +30,26 @@ public class HomeSteps extends PageSteps {
     }
     @And("el usuario hace click en cualquier imagen '(.*)' del libro")
     public void elUsuarioHaceClickEnCualquierImagenDelLibro(String imagenNombre) {
-        SuperiorBarNavigationBarService.clickLibros(imagenNombre);
+        HomeService.clickLibros(imagenNombre);
     }
     @And("el usuario es redirigido a la pagina '(.*)' para agregar el libro a la cesta")
     public void elUsuarioEsRedirigidoALaPaginaParaAgregarElLibroALaCesta(String pagina) {
-        SuperiorBarNavigationBarService.validarRedireccion(pagina);
+        HomeService.validarRedireccion(pagina);
     }
 
     @Then("el usuario visualiza la descripcion '(.*)' del libro")
     public void elUsuarioVisualizaLaDescripcionDelLibro(String descripcion) {
-        SuperiorBarNavigationBarService.verificarDescripcion(descripcion);
+        HomeService.verificarDescripcion(descripcion);
 
     }
 
     @And("el usuario hace click en review del libro")
     public void elUsuarioHaceClickEnReviewReviewDelLibro() {
-        SuperiorBarNavigationBarService.clickReview();
+        HomeService.clickReview();
     }
 
     @Then("el usuario visualiza la review '(.*)' del libro")
     public void elUsuarioVisualizaLaReviewDelLibro(String reviews) {
-        SuperiorBarNavigationBarService.verificarReview(reviews);
+        HomeService.verificarReview(reviews);
     }
 }

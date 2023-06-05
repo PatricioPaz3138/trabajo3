@@ -11,9 +11,10 @@ Feature: Registration
     Given el usuario ingresa mail <mail> y contraseña <contrasenia>
     When el usuario hace click en el boton register
     Then el usuario se registra correctamente
+    And el usuario hace click en cerrar sesion
     Examples:
-      | mail                      | contrasenia   |
-      | pepito232@Crowdar2023.com | Pepito12345!! |
+      | mail                     | contrasenia   |
+      | pepitou1@Crowdar2023.com | Pepito12345!! |
 
   @RegistroFallido
   Scenario Outline: Registro Fallido

@@ -1,31 +1,51 @@
 package lippia.web.services;
-
+import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
-import com.crowdar.driver.DriverManager;
-import org.openqa.selenium.WebDriver;
-import static lippia.web.constants.SuperiorNavigationBarConstants.*;
+import org.testng.Assert;
+
+import static com.crowdar.core.actions.WebActionManager.navigateTo;
+import static lippia.web.constants.HomeConstants.*;
 public class HomeService extends ActionManager {
+    public static void navegarWeb() {
+        navigateTo(PropertyManager.getProperty("web.base.url"));
+    }
+    public static void clickMenu() {
+        WebActionManager.click(SHOP_MENU_BUTTON);
+    }
+    public static void clickHomeMenu() {
+        WebActionManager.waitClickable(HOME_BUTTON).click();
+    }
     public static void verificaSliders() {
-
-        click(HOME_SLIDERS);
+        Assert.assertEquals((WebActionManager.getElements(SLIDERS_IMG)).size()
+                , 3, "El Array no contiene 3 imágenes");
     }
-
-    public static void clickSliders() {
-        for (int i = 0; i < 3; i++) {
-            verificaSliders();
-        }
-    }
-
     public static void verificaArrivals() {
-        WebActionManager.isVisible(RUBY);
-        WebActionManager.isVisible(HTML);
-        WebActionManager.isVisible(JAVA_SCRIPT);
+        Assert.assertTrue(WebActionManager.isVisible(RUBY));
+        Assert.assertTrue(WebActionManager.isVisible(HTML));
+        Assert.assertTrue(WebActionManager.isVisible(JAVA_SCRIPT));
     }
+    public static void clickLibros(String imagenNombre){
+        WebActionManager.waitVisibility(nombreImagen.replace("%s", imagenNombre));
+        WebActionManager.waitClickable(nombreImagen.replace("%s", imagenNombre)).click();
+    }
+    public static void validarRedireccion(String pagina){
+        String tituloVisual = WebActionManager.getText(tituloLibro);
+        Assert.assertEquals(tituloVisual,pagina);
+    }
+    public static void verificarDescripcion(String descripcion){
+        String descripcionMostrada = WebActionManager.getText(descripcionLibro);
+        Assert.assertTrue(WebActionManager.isVisible(descripcionLibro));
+        Assert.assertTrue(descripcionMostrada.contains(descripcion));
+    }
+    public static void clickReview(){
+        WebActionManager.waitClickable(reviewLibro).click();
+    }
+    public static void verificarReview(String reviews){
 
-    public static void cerrarDriver() {
-        WebDriver driver = DriverManager.getDriverInstance();
-        driver.close();
+        String reviewMostrada = WebActionManager.getText(textReviewLibro);
+        Assert.assertTrue(WebActionManager.waitVisibility(textReviewLibro).isDisplayed());
+        Assert.assertTrue(reviewMostrada.contains(reviews));
     }
 }
 
