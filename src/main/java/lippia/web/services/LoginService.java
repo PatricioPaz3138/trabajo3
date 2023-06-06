@@ -1,14 +1,11 @@
 package lippia.web.services;
-
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.core.actions.WebActionManager;
 import com.crowdar.driver.DriverManager;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
 import static lippia.web.constants.LoginConstants.*;
 
 public class LoginService extends ActionManager {

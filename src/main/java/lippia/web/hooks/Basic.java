@@ -17,7 +17,7 @@ public class Basic {
     public void beforeScenario( Scenario scenario ) {
         DriverManager.getDriverInstance().register( new DriverValidatorListener() );
     }
-    @After
+    @After()
     public void afterScenario(Scenario scenario) {
         DriverManager.dismissCurrentDriver();
         Injector.cleanThreadCache();

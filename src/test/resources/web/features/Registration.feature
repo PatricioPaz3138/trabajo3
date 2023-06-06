@@ -14,7 +14,7 @@ Feature: Registration
     And el usuario hace click en cerrar sesion
     Examples:
       | mail                     | contrasenia   |
-      | pepitou1@Crowdar2023.com | Pepito12345!! |
+      | pepito34@Crowdar2023.com | Pepito12345!! |
 
   @RegistroFallido
   Scenario Outline: Registro Fallido
@@ -23,9 +23,9 @@ Feature: Registration
     When el usuario hace click en el boton register
     Then el usuario visualiza un mensaje <mensaje> de error
     Examples:
-      | mail            | contrasenia    | mensaje         |
-      | Patricio1234@pe | PATRICIoo12345 | provide a valid |
-      |                 | PATRICIoo12345 | provide a valid |
-      |                 |                | provide a valid |
+      | mail            | contrasenia    | mensaje                                      |
+      | Patricio1234@pe | PATRICIoo12345 | Error: Please provide a valid email address. |
+      |                 | PATRICIoo12345 | Error: Please provide a valid email address. |
+      |                 |                | Error: Please provide a valid email address. |
 
 
